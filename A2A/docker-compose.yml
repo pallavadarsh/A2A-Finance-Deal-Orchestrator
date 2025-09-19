@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  orchestrator:
+    build: ./orchestrator
+    ports: ["8010:8010"]
+    depends_on: [finance_agent, risk_agent, legal_agent, diagnostics_agent, infra_agent, security_agent, committee_agent]
+
+  finance_agent:
+    build: ./services/finance_agent
+    ports: ["8101:8101"]
+
+  risk_agent:
+    build: ./services/risk_agent
+    ports: ["8102:8102"]
+
+  legal_agent:
+    build: ./services/legal_agent
+    ports: ["8103:8103"]
+
+  diagnostics_agent:
+    build: ./services/diagnostics_agent
+    ports: ["8104:8104"]
+
+  infra_agent:
+    build: ./services/infra_agent
+    ports: ["8105:8105"]
+
+  security_agent:
+    build: ./services/security_agent
+    ports: ["8106:8106"]
+
+  committee_agent:
+    build: ./services/committee_agent
+    ports: ["8107:8107"]
